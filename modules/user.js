@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb+srv://admin:mongodb2004@cluster0.ihwrfim.mongodb.net/todoApp"
+  "mongodb+srv://admin:******@cluster0.ihwrfim.mongodb.net/todoApp" //password from url is removed
 );
 
 const Schema = mongoose.Schema;
