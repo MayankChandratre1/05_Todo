@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const userModel = require("./modules/user");
 const todoModel = require("./modules/todo");
-const KEY = "jwtisawesome";
+const KEY = "jwtisawesome"; //This shouldn't be here, But I don't know where to put it.
 0
 //setup
 const app = express();
