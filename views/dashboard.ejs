@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h2>🟠 <%= user.username %></h2>
+    <a href="/logout" class="link logout delete">Logout</a>
+    <form action="/addTodo" method="post">
+        <h5>Create a ToDo</h5>
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="desc" id="desc" placeholder="What to do?"></textarea>
+        <input type="submit" value="Add Todo">
+    </form>
+
+
+    <div class="todoContainer">
+
+        <% if(user.todos.length > 0){ %>
+           <% user.todos.reverse().forEach(todo => { %>
+            <% if(user._id == todo.user){ %>
+                <div class="todo <%= todo.completed ? "completed": "" %>">
+                    <h3 class="title"><%= todo.title  %></h3>
+                    <p class="desc"><%= todo.desc  %></p>
+                    <a href="/markasdone/<%= todo._id  %>" class="link markasdone">Mark as done</a>
+                    <a href="/delete/<%= todo._id  %>" class="link delete">Delete</a>
+                </div>
+            <% } %>
+            
+          <% }); %>
+        <% } else { %>
+            <p class="notyet">No todos yet.</p>
+        <% }  %>
+
+        
+        <!--  -->
+    </div>
+
+</body>
+</html>
